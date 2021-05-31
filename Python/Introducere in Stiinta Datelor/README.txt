@@ -1,0 +1,1 @@
+Programele au fost realizate in 2 persoane.
