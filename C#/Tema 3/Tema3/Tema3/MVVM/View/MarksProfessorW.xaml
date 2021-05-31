@@ -1,0 +1,219 @@
+﻿<Window x:Class="Tema3.MVVM.View.MarksProfessorW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema3.MVVM.View"
+        xmlns:viewModel="clr-namespace:Tema3.MVVM.ViewModel"
+        xmlns:convert="clr-namespace:Tema3.Converters"
+        xmlns:behavior="clr-namespace:AttachedCommandBehavior;assembly=AttachedCommandBehavior"
+        mc:Ignorable="d"
+        Icon="pack://application:,,,/Resources/Imagines/book-open-flat.png"
+        Height="450" Width="450"
+        MinHeight="450" MinWidth="450">
+
+    <Window.DataContext>
+        <viewModel:MarksProfessorVM/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush 
+                StartPoint="0,0"
+                EndPoint="1,2">
+
+                <GradientStop Color="#FFB5DCFD" Offset="0.0"/>
+                <GradientStop Color="#FF3ADFB8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Margin="0,30,0,20"
+            HorizontalAlignment="Center"
+            FontWeight="Bold"
+            FontSize="20"
+            Text="Note"/>
+
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="0,0,0,20">
+
+            <Button
+                Content="Adauga"
+                Width="100"
+                Style="{StaticResource MyButtonTheme}"
+                Command="{Binding AddCommand}">
+                <Button.Resources>
+                    <convert:MarkConvert x:Key="markConvert"/>
+                </Button.Resources>
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource markConvert}">
+                        <Binding 
+                            ElementName="subjectCB" 
+                            Path="SelectedItem.Item1"/>
+
+                        <Binding 
+                            ElementName="pupilCB" 
+                            Path="SelectedItem.Item1"/>
+
+                        <Binding 
+                            ElementName="finalExamMarkCB"
+                            Path="Text"/>
+
+                        <Binding 
+                            ElementName="dateDP"
+                            Path="SelectedDate"/>
+
+                        <Binding
+                            ElementName="markScoreTB"
+                            Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+            <Button
+                Content="Anuleaza"
+                Width="100"
+                Style="{StaticResource MyButtonTheme}"
+                Command="{Binding DeleteCommand}"
+                CommandParameter="{Binding ElementName=infoGrid, 
+                    Path=SelectedItem}"/>
+        </StackPanel>
+
+        <Grid
+            Grid.Row="2"
+            HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition MinWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Materie"/>
+
+            <TextBlock
+                Grid.Row="1"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Elev"/>
+
+            <TextBlock
+                Grid.Row="2"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Teza"
+                IsEnabled="{Binding SubjectHasFinalExam}"/>
+
+            <TextBlock
+                Grid.Row="3"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Data"/>
+
+            <TextBlock
+                Grid.Row="4"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Nota"/>
+
+            <ComboBox
+                x:Name="subjectCB"
+                Grid.Column="1"
+                FontSize="10"
+                VerticalContentAlignment="Center"
+                ItemsSource="{Binding SubjectsList}"
+                DisplayMemberPath="Item2"
+                behavior:CommandBehavior.Command=
+                    "{Binding GetPupilsCommand}"
+                behavior:CommandBehavior.CommandParameter=
+                    "{Binding ElementName=subjectCB,
+                    Path=SelectedItem.Item1}"
+                behavior:CommandBehavior.Event="SelectionChanged"/>
+
+            <ComboBox
+                x:Name="pupilCB"
+                Grid.Column="1"
+                Grid.Row="1"
+                FontSize="10"
+                VerticalContentAlignment="Center"
+                ItemsSource="{Binding PupilsList}"
+                DisplayMemberPath="Item2"
+                behavior:CommandBehavior.Command=
+                    "{Binding GetMarksCommand}"
+                behavior:CommandBehavior.CommandParameter=
+                    "{Binding ElementName=pupilCB, 
+                    Path=SelectedItem.Item1}"
+                behavior:CommandBehavior.Event="SelectionChanged"/>
+
+            <ComboBox
+                x:Name="finalExamMarkCB"
+                Grid.Column="1"
+                Grid.Row="2"
+                FontSize="10"
+                VerticalContentAlignment="Center"
+                IsEnabled="{Binding SubjectHasFinalExam}">
+
+                <ComboBoxItem Content="Da"/>
+                <ComboBoxItem Content="Nu"/>
+            </ComboBox>
+
+            <DatePicker
+                x:Name="dateDP"
+                Grid.Column="1"
+                Grid.Row="3"
+                FontSize="12"
+                VerticalContentAlignment="Center"
+                Background="LightGray"/>
+
+            <TextBox
+                x:Name="markScoreTB"
+                Grid.Column="1"
+                Grid.Row="4"
+                FontSize="10"
+                VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <DataGrid 
+            x:Name="infoGrid"
+            Grid.Row="3"
+            Margin="40,20,40,40"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Marks}"
+            IsReadOnly="True"
+            ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Data" 
+                    Binding="{Binding Date}"/>
+
+                <DataGridTextColumn
+                    Header="Teza" 
+                    Binding="{Binding FinalExam}"/>
+
+                <DataGridTextColumn
+                    Header="Nota" 
+                    Binding="{Binding MarkScore}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

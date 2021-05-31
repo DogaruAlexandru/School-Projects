@@ -1,0 +1,7 @@
+Sa se implementeze 2 algoritmi la alegere dintre: Generic, Prim, Kruskal si Boruvka. Acestia se regasesc in capitolul Arbori si Arborescente din curs.
+Implementarea acestei teme nu trebuie facuta cu interfata grafica. Graful il veti prelua din fisier si veti afisa in consola muchiile care formeaza arborele de cost minim si costul total al arborelui.
+Atentionare! Va trebui sa implementati algoritmii alesi astfel incat sa nu depasiti urmatoarele complexitati:
+Alg. Generic: complexitate O(n*log(m))
+Alg. Prim: complexitate O(n^2)
+Alg. Kruskal: complexitate O(m*log(n))
+Alg. Boruvka: complexitate O(m*log(n))

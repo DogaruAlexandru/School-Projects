@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Tema3.MVVM.View.AdminUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tema3.MVVM.View"
+             xmlns:viewModel="clr-namespace:Tema3.MVVM.ViewModel"
+             mc:Ignorable="d" 
+             Background="Aquamarine">
+
+    <UserControl.DataContext>
+        <viewModel:AdminVM/>
+    </UserControl.DataContext>
+
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+
+        <Button
+            Style="{StaticResource MyButtonTheme}"
+            Content="Elevi"
+            Command="{Binding PupilCommand}"/>
+
+        <Button
+            Style="{StaticResource MyButtonTheme}"
+            Content="Profesori"
+            Command="{Binding ProfessorCommand}"/>
+
+        <Button
+            Style="{StaticResource MyButtonTheme}"
+            Content="Materii"
+            Command="{Binding SubjectCommand}"/>
+
+        <Button
+            Style="{StaticResource MyButtonTheme}"
+            Content="Clase"
+            Command="{Binding ClassCommand}"/>
+
+        <Button
+            Style="{StaticResource MyButtonTheme}"
+            Content="Relatii"
+            Command="{Binding RelationComman}"/>
+    </StackPanel>
+    
+</UserControl>

@@ -1,0 +1,8 @@
+Pentru tema nr 5 veti avea de implementat 2 algoritmi de drum minim: Dijkstra si Bellman-Ford.
+Aplicarea acestui algoritm se va face pe harta Luxembourgului, cea data prin fisierul xml de pe platforma.
+Aplicatia va trebui sa afiseze vizual harta intr-o fereastra. Punctele de start si de final ale drumului se vor selecta prin click de mouse in 2 zone diferite ale hartii. Deoarece sunt foarte multe noduri/arce reprezentate grafic, un nod se va alege ca fiind cel mai apropiat de punctul unde am dat click (veti calcula distanta de la coordonatele punctului unde ati dat click la coordonatele nodului).
+Pentru a opta intre executia alg. Dijkstra sau alg. Bellman-Ford, veti putea introduce optiunea de algoritm in consola.
+Dupa executia algoritmului ales, drumul minim rezultat intre cele 2 noduri selectate se va afisa cu culoarea rosie.
+Timpul de incarcare a grafului din fisier si de afisare in fereastra trebuie sa fie de aproximativ o secunda.
+Deasemenea, timpul de executie al algoritmului de drum minim si de colorare a drumului rezultat trebuie sa fie de aproximativ o secunda.
+Nu vor fi luate in considerare implementari recursive!!!

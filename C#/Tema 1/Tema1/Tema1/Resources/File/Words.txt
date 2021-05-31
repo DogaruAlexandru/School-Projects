@@ -1,0 +1,15 @@
+castravete#Fructul acestei plante, de forma alungita, de culoare verde, care se consuma crud, murat sau gatit#leguma#castravete.png
+patrunjel#Planta erbacee legumicola, cu tulpina inalta, cultivata pentru radacina pivotanta, alba si pentru frunzele ei aromate, intrebuintate in alimentatie si in medicina populara#leguma#patrunjel.png
+varza#Planta legumicola bienala din familia cruciferelor, cu frunze mari, groase si ondulate, care se invelesc unele pe altele formand o capatana compacta, folosita in alimentatie#leguma#varza.png
+caine#Animal mamifer carnivor, domesticit, folosit pentru paza, vanatoare etc#animal#caine.png
+pisica#Mamifer domestic carnivor din familia felidelor, cu corpul suplu, acoperit cu blana deasa si moale de diferite culori, cu capul rotund, cu botul foarte scurt, cu maxilarele puternice si cu ghearele retractile si ascutite#animal#pisica.png
+cal#Animal domestic erbivor, cu copita nedespicata, folosit la calarie si la tractiune#animal#No-image-found.jpg
+albina#Insecta din familia apidelor, cu aparatul bucal adaptat pentru supt si lins, iar cu picioarele posterioare pentru strangerea polenului, cu abdomenul prevazut cu un ac veninos si care traieste in familii, producand miere si ceara; musca#insecta#No-image-found.jpg
+furnica#Insecta mica, neagra, din ordinul himenopterelor, care traieste in colonii, adapostindu-se in musuroaie#insecta#No-image-found.jpg
+fluture#Nume generic dat insectelor din ordinul lepidopterelor, care au corpul bombat sau alungit si catifelat, patru aripi membranoase, acoperite cu solzi marunti de culori diferite si un aparat bucal adaptat pentru supt, a caror larva este o omida#insecta#No-image-found.jpg
+papadie#Planta erbacee din familia compozitelor, cu frunze lungi, crestate (care se mananca uneori ca salata) si cu flori galbene grupate in capitule#floare#papadie.png
+margareta#Planta erbacee perena din familia compozeelor, cu inflorescenta compusa din flori mici, galbene, dispuse intr-un disc central, si din flori marginale cu o corola lunga, alba; margarita#floare#margareta.png
+trandafir#Planta erbacee perena din familia compozeelor, cu inflorescenta compusa din flori mici, galbene, dispuse intr-un disc central, si din flori marginale cu o corola lunga, alba; margarita#floare#No-image-found.jpg
+stejar#Specie de arbori inalti cu tulpina dreapta, cu coroana larga, cu frunzele adanc crestate, cu florile dispuse in amenti, cu lemnul rezistent si dur, al caror fruct este ghinda#arbore#stejar.png
+liliac#Arbust inalt cu frunze ovale, cu flori placut mirositoare, albe sau colorate in diferite nuante de violet sau albastru-violet, crescute in forma de buchete, cultivat ca planta ornamentala; iorgovan, malin#arbust#liliac.png
+mesteacan#Arbore cu scoarta alba, cu lemnul alb, galbui sau rosiatic, cu ramuri flexibile, cu frunze verzi-cenusii si cu flori grupate in amenti#arbore#mesteacan.png

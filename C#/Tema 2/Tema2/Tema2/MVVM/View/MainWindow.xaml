@@ -1,0 +1,78 @@
+﻿<Window x:Class="Tema2.MVVM.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema2.MVVM.View"
+        xmlns:VM="clr-namespace:Tema2.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="Checkers"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Icon="..\..\Resources\Images\Icon.jpg">
+    <Window.DataContext>
+        <VM:MainVM/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate 
+            x:Key="menuViewTemplate" 
+            DataType="{x:Type VM:MainVM}">
+            <local:MenuUserControl />
+        </DataTemplate>
+
+        <DataTemplate 
+            x:Key="gameViewTemplate" 
+            DataType="{x:Type VM:MainVM}">
+            <local:GameUserControl />
+        </DataTemplate>
+
+        <DataTemplate 
+            x:Key="aboutViewTemplate" 
+            DataType="{x:Type VM:MainVM}">
+            <local:AboutUserControl />
+        </DataTemplate>
+
+        <DataTemplate
+            x:Key="loadGameViewTemplate"
+            DataType="{x:Type VM:MainVM}">
+            <local:LoadGameUserControl />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ContentControl 
+            Content="{Binding}">
+            <ContentControl.Style>
+                <Style 
+                    TargetType="{x:Type ContentControl}">
+                    <Setter 
+                        Property="ContentTemplate" 
+                        Value="{StaticResource menuViewTemplate}" />
+                    <Style.Triggers>
+                        <DataTrigger
+                            Binding="{Binding SwitchView}"
+                            Value="1">
+                            <Setter
+                                Property="ContentTemplate" 
+                                Value="{StaticResource gameViewTemplate}" />
+                        </DataTrigger>
+                        <DataTrigger 
+                            Binding="{Binding SwitchView}" 
+                            Value="2">
+                            <Setter 
+                                Property="ContentTemplate"
+                                Value="{StaticResource aboutViewTemplate}" />
+                        </DataTrigger>
+                        <DataTrigger 
+                            Binding="{Binding SwitchView}" 
+                            Value="3">
+                            <Setter 
+                                Property="ContentTemplate"
+                                Value="{StaticResource loadGameViewTemplate}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>

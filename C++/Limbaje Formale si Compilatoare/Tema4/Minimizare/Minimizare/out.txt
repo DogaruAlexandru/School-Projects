@@ -1,0 +1,12 @@
+AFD: M = { States, Imput Alphabet, Transitions, Initial State, Finale States }
+States = { q0, q2, q4, q8q7, q5q3q1 }
+Imput Alphabet = { a, b }
+Transitions:
+                   a          b 
+        q0     q5q3q1     q5q3q1 
+        q2         q4     q5q3q1 
+        q4       q8q7       q8q7 
+      q8q7       q8q7       q8q7 
+    q5q3q1         q2     q5q3q1 
+Initial State = { q0 }
+Finale States = { q8q7 }

@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Tema2.MVVM.View.AboutUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tema2.MVVM.View"
+             xmlns:VM="clr-namespace:Tema2.MVVM.ViewModel"
+             mc:Ignorable="d" 
+             Height="400"
+             Width="400">
+    <UserControl.DataContext>
+        <VM:AboutVM/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush 
+                StartPoint="0,0"
+                EndPoint="1,2">
+                <GradientStop Color="#FFB5DCFD" Offset="0.0"/>
+                <GradientStop Color="#FF3ADFB8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="50,0,50,0">
+            <TextBlock
+                TextWrapping="Wrap"
+                FontWeight="DemiBold"
+                Text="Creator: Dogaru Alexandru&#x0a;Email: alexandru-d.dogaru@student.unitbv.ro&#x0a;Group: 10LF391&#x0a;&#x0a;Description:&#x0a;Checkers is a game played on a board checkered with squares of two colors. Two players compete in checkers to have the last piece on the board.&#x0a;The game pieces in checkers — which you can also call checkers — are usually red and black. Players move diagonally on the board, trying to reach the opposite side where their pieces can be kinged, or doubled, giving them more powers. On the way, a player attempts to jump over her opponent's pieces and capture them. In Britain, the identical game is called draughts.">
+            </TextBlock>
+            <Button
+                Style="{StaticResource myButtonTheme}"
+                Margin="0,30,0,0"
+                Content="Back"
+                Command="{Binding Back}">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

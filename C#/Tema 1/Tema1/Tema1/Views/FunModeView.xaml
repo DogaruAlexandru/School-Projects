@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="Tema1.Views.FunMode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tema1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="#FF8B8B8B">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFD5FFD7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Button
+                x:Name="startButton"
+                Grid.Column="3"
+                Grid.Row="3"
+                Content="Începe"
+                FontSize="24"
+                FontWeight="Bold"
+                Click="startButton_Click"
+                MinWidth="100"
+                MinHeight="50">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button
+                x:Name="restartButton"
+                Grid.Column="3"
+                Grid.Row="5"
+                Content="Reîncepe"
+                FontSize="24"
+                FontWeight="Bold"
+                Click="startButton_Click"
+                MinWidth="120"
+                MinHeight="50"
+                Visibility="Hidden">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <Button
+                x:Name="backButton"
+                Grid.Column="1"
+                Grid.Row="5"
+                Content="Înapoi"
+                FontSize="24"
+                FontWeight="Bold"
+                MinWidth="100"
+                MinHeight="50"
+                Visibility="Hidden"
+                Click="backButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button
+                x:Name="nextButton"
+                Grid.Column="5"
+                Grid.Row="5"
+                Content="Înainte"
+                FontSize="24"
+                FontWeight="Bold"
+                MinWidth="100"
+                MinHeight="50"
+                Visibility="Hidden"
+                Click="nextButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                x:Name="finishButton"
+                Grid.Column="5"
+                Grid.Row="5"
+                Content="Termină"
+                FontSize="24"
+                FontWeight="Bold"
+                MinWidth="100"
+                MinHeight="50"
+                Visibility="Hidden"
+                Click="finishButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <TextBox
+                x:Name="answerTextBox"
+                Grid.Column="2"
+                Grid.Row="5"
+                Grid.ColumnSpan="3"
+                Visibility="Hidden"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Image 
+                x:Name="clueImage"
+                Grid.Column="1"
+                Grid.Row="1"
+                Grid.ColumnSpan="5"
+                Grid.RowSpan="3"
+                Visibility="Hidden">
+            </Image>
+
+            <Grid
+                x:Name="clueDescriptonGrid"
+                Margin="30"
+                Grid.Row="2" 
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Visibility="Hidden">
+                <ScrollViewer 
+                VerticalScrollBarVisibility="Auto">
+                    <TextBlock 
+                        x:Name="descriptionTextBlock"
+                        Margin="2"
+                        Background="White"
+                        TextWrapping="WrapWithOverflow">
+                    </TextBlock>
+                </ScrollViewer>
+
+                <Rectangle Stroke="Black"/>
+            </Grid>
+
+            <Grid
+                x:Name="endScreenGrid"
+                Margin="30"
+                Grid.Row="2" 
+                Grid.Column="2"
+                Grid.ColumnSpan="3"
+                Grid.RowSpan="2"
+                Visibility="Hidden">
+                <ScrollViewer 
+                VerticalScrollBarVisibility="Auto">
+                    <TextBlock 
+                        x:Name="endScreenTextBlock"
+                        Margin="2"
+                        Background="White"
+                        TextWrapping="WrapWithOverflow">
+                    </TextBlock>
+                </ScrollViewer>
+
+                <Rectangle Stroke="Black"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

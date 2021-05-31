@@ -1,0 +1,231 @@
+﻿<Window x:Class="Tema3.MVVM.View.AdminPupilW"
+        x:Name="adminPupilW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema3.MVVM.View"
+        xmlns:viewModel="clr-namespace:Tema3.MVVM.ViewModel"
+        xmlns:behavior="clr-namespace:AttachedCommandBehavior;assembly=AttachedCommandBehavior"
+        mc:Ignorable="d"
+        Icon="pack://application:,,,/Resources/Imagines/book-open-flat.png"
+        Height="600" Width="600"
+        MinHeight="450" MinWidth="450">
+
+    <Window.DataContext>
+        <viewModel:AdminPupilVM/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush 
+                StartPoint="0,0"
+                EndPoint="1,2">
+
+                <GradientStop Color="#FFB5DCFD" Offset="0.0"/>
+                <GradientStop Color="#FF3ADFB8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Margin="0,30,0,20"
+            HorizontalAlignment="Center"
+            FontWeight="Bold"
+            FontSize="20"
+            Text="Elevi"/>
+
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="0,0,0,20">
+
+            <Button
+                Content="Adauga"
+                Width="100"
+                Style="{StaticResource MyButtonTheme}"
+                Command="{Binding AddCommand}"
+                CommandParameter="{Binding ElementName=classCB,
+                    Path=SelectedItem}"/>
+
+            <Button
+                Content="Modifica"
+                Width="100"
+                Style="{StaticResource MyButtonTheme}"
+                Command="{Binding ModifyCommand}"
+                CommandParameter="{Binding ElementName=classCB,
+                    Path=SelectedItem}"/>
+
+            <Button
+                Content="Sterge"
+                Width="100"
+                Style="{StaticResource MyButtonTheme}"
+                Command="{Binding DeleteCommand}"/>
+        </StackPanel>
+
+        <Grid
+            Grid.Row="2"
+            HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBox
+                Grid.Column="1"
+                Width="240"
+                Text="{Binding LastName}"/>
+
+            <TextBox
+                Grid.Column="1"
+                Grid.Row="1"
+                Width="240"
+                Text="{Binding FirstName}"/>
+
+            <ComboBox
+                x:Name="classCB"
+                Grid.Column="1"
+                Grid.Row="2"
+                Width="240"
+                FontSize="8"
+                ItemsSource="{Binding Classes}"
+                DisplayMemberPath="ClassName"/>
+
+            <TextBox
+                Grid.Column="1"
+                Grid.Row="3"
+                Width="240"
+                Text="{Binding Username}"/>
+
+            <TextBox
+                Grid.Column="1"
+                Grid.Row="4"
+                Width="240"
+                Text="{Binding Password}"/>
+
+            <TextBox
+                Grid.Column="1"
+                Grid.Row="5"
+                Width="240"
+                Text="{Binding PhoneNumber}"/>
+
+            <TextBox
+                Grid.Column="1"
+                Grid.Row="6"
+                Width="240"
+                Text="{Binding Email}"/>
+
+            <TextBlock
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Nume"/>
+
+            <TextBlock
+                Grid.Row="1"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Prenume"/>
+
+            <TextBlock
+                Grid.Row="2"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Clasa"/>
+
+            <TextBlock
+                Margin="0,0,20,0"
+                Grid.Row="3"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Nume de utilizator"/>
+
+            <TextBlock
+                Grid.Row="4"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Parola"/>
+
+            <TextBlock
+                Grid.Row="5"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Numar de telefon"/>
+
+            <TextBlock
+                Grid.Row="6"
+                FontWeight="Bold"
+                FontSize="14"
+                Text="Email"/>
+        </Grid>
+
+        <Grid
+            Margin="40,20,40,40"
+            Grid.Row="3">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <DataGrid
+                x:Name="infoGrid"
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Pupils}"
+                IsReadOnly="True"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                behavior:CommandBehavior.Command=
+                    "{Binding SelectCommand}"
+                behavior:CommandBehavior.CommandParameter=
+                    "{Binding ElementName=adminPupilW}"
+                behavior:CommandBehavior.Event="SelectionChanged">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="Nume" 
+                        Binding="{Binding Item1.FirstName}"/>
+
+                    <DataGridTextColumn
+                        Header="Prenume" 
+                        Binding="{Binding Item1.LastName}"/>
+
+                    <DataGridTextColumn
+                        Header="Clasa" 
+                        Binding="{Binding Item4.ClassName}"/>
+
+                    <DataGridTextColumn
+                        Header="Nume de utilizator" 
+                        Binding="{Binding Item2}"/>
+
+                    <DataGridTextColumn
+                        Header="Parola" 
+                        Binding="{Binding Item3}"/>
+
+                    <DataGridTextColumn
+                        Header="Numar de telefon" 
+                        Binding="{Binding Item1.PhoneNumber}"/>
+
+                    <DataGridTextColumn
+                        Header="Email" 
+                        Binding="{Binding Item1.Email}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>

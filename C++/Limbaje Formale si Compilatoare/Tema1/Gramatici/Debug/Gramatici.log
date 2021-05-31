@@ -1,0 +1,6 @@
+﻿  GenerativeGrammar.cpp
+D:\Scoala\Anul II\Semestrul I\LFC\Tema1 - Gramatici\Gramatici\GenerativeGrammar.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Scoala\Anul II\Semestrul I\LFC\Tema1 - Gramatici\Gramatici\GenerativeGrammar.cpp(17,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Scoala\Anul II\Semestrul I\LFC\Tema1 - Gramatici\Gramatici\GenerativeGrammar.cpp(65,37): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data
+D:\Scoala\Anul II\Semestrul I\LFC\Tema1 - Gramatici\Gramatici\GenerativeGrammar.cpp(159,69): warning C4267: 'initializing': conversion from 'size_t' to 'uint8_t', possible loss of data
+  Gramatici.vcxproj -> D:\Scoala\Anul II\Semestrul I\LFC\Tema1 - Gramatici\Debug\Gramatici.exe

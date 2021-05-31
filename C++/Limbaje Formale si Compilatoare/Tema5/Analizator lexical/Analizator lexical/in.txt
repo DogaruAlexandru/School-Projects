@@ -1,0 +1,18 @@
+//hello
+float average(int v[], int n)
+{
+	float avg = 0;
+	for(int i=0; i< n; i++)
+		avg += v[i]; //mm
+	if (avg <= 6)
+		avg =avg+10.3e-3 ;
+	return avg/n;
+}  		
+//world
+
+$%&
+12.
+- 10.3e
+
+float float wqeq	 sdf
+aoshb float float

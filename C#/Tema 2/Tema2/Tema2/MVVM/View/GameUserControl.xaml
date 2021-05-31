@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Tema2.MVVM.View.GameUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tema2.MVVM.View"
+             xmlns:VM="clr-namespace:Tema2.MVVM.ViewModel"
+             xmlns:services="clr-namespace:Tema2.Services"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <VM:GameBoardVM/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF87FFD7" Offset="0"/>
+                <GradientStop Color="#FFD3AAFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <local:BoardUserControl
+            Margin="30"
+            BorderBrush="Black"
+            BorderThickness="4">
+        </local:BoardUserControl>
+
+        <StackPanel 
+            Grid.Column="1"
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="0,30,30,30">
+            <Label
+                Content="{Binding GameModeText}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="10,5,10,0"
+                FontSize="16"
+                FontWeight="Bold">
+            </Label>
+            <Label
+                Content="{Binding PlayerTurnText}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="10,5,10,70"
+                FontSize="16"
+                FontWeight="Bold">
+            </Label>
+            <Button
+                Style="{StaticResource myButtonTheme}"
+                Content="Save Game"
+                Command="{Binding Save}">
+            </Button>
+            <Button
+                Style="{StaticResource myButtonTheme}"
+                Content="Menu"
+                Command="{Binding BackToMenu}">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

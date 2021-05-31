@@ -1,0 +1,114 @@
+﻿<Window x:Class="Tema3.MVVM.View.TeachingMaterialsPupilW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema3.MVVM.View"
+        xmlns:viewModel="clr-namespace:Tema3.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Icon="pack://application:,,,/Resources/Imagines/book-open-flat.png"
+        Height="450" Width="450"
+        MinHeight="450" MinWidth="450">
+
+    <Window.DataContext>
+        <viewModel:TeachingMaterialsPupilVM/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush 
+                StartPoint="0,0"
+                EndPoint="1,2">
+                
+                <GradientStop Color="#FFB5DCFD" Offset="0.0"/>
+                <GradientStop Color="#FF3ADFB8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Row="0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Margin="0,30,0,20"
+                HorizontalAlignment="Center"
+                FontWeight="Bold"
+                FontSize="20"
+                Text="Materiale didactice"/>
+
+            <ListView
+                x:Name="materials"
+                Grid.Row="1"
+                BorderThickness="3"
+                Margin="30,0,30,0"
+                SelectionMode="Single"
+                ItemsSource="{Binding TeachingMaterials}">
+                
+                <ListView.View>
+                    <GridView 
+                        AllowsColumnReorder="False">
+                        
+                        <GridViewColumn
+                            Width="auto"
+                            DisplayMemberBinding="{Binding SubjectName}"
+                            Header="Materie"/>
+
+                        <GridViewColumn 
+                            Width="auto"
+                            DisplayMemberBinding="{Binding Year}"
+                            Header=" An "/>
+
+                        <GridViewColumn 
+                            Width="auto"
+                            DisplayMemberBinding="{Binding Semester}"
+                            Header="Semestru"/>
+
+                    </GridView>
+                </ListView.View>
+
+                <ListView.Background>
+                    <SolidColorBrush Color="#CCEAF5FF"/>
+                </ListView.Background>
+            </ListView>
+        </Grid>
+
+        <StackPanel
+            Margin="20,20,20,40"
+            Grid.Row="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+
+            <Button
+                Content="Deschide"
+                Command="{Binding Open}"
+                CommandParameter="{Binding ElementName=materials,
+                    Path=SelectedItem}">
+                
+                <Button.Style>
+                    <Style
+                        TargetType="Button"
+                        BasedOn="{StaticResource MyButtonTheme}">
+                        
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding ElementName=materials, 
+                                    Path=SelectedItem}"
+                                Value="{x:Null}">
+                                
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
